@@ -31,6 +31,7 @@ class _ChatScreenState extends State<ChatScreen> {
     await MessageService.sendMessage(
       message: message,
       senderId: _user.uid,
+      senderName: _user.displayName,
     );
   }
 
@@ -117,7 +118,8 @@ class _ChatScreenState extends State<ChatScreen> {
                             ? CrossAxisAlignment.end
                             : CrossAxisAlignment.start,
                         children: <Widget>[
-                          Text(_user.displayName ?? 'Anonymous'),
+                          // Text(_user.displayName ?? 'Anonymous'),
+                          Text(docs[index]['senderName'].toString()),
                           Card(
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.only(

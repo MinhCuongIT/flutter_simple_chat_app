@@ -8,9 +8,11 @@ class MessageService {
   static Future sendMessage({
     @required String message,
     @required String senderId,
+    @required String senderName,
   }) async {
     await _firestore.collection(_collection).add({
       'senderId': senderId,
+      'senderName': senderName,
       'message': message,
       'time': DateTime.now(),
     });
